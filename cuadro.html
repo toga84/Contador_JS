@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+ 
+<style type="text/css">
+/*<![CDATA[*/
+ 
+#nax{
+  float: right; 
+  right: 5%;
+  position: fixed; 
+  top: 400px;  
+  border: 0px solid rgb(98, 98, 98);
+  border-radius: 10px; 
+  background: #ebe2e2;
+  z-index: 4;
+  padding: 0px 15px 0px 0px;
+}
+
+table.boton{
+  text-align: center;
+  width; 100%;
+  border-collapse: collapse;
+  border-spacing: 0px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-family: arial;
+  border: 1px solid #ebe2e2;
+  
+}
+
+table.boton th{
+  font-size: 2.2em;
+  color: rgb(61, 143, 26);
+  border-collapse: collapse;
+  border-spacing: 0px;
+  border: 1px solid #ebe2e2;
+}
+
+table.boton td{
+  font-size: 1em;
+  color: rgb(98, 98, 98);
+  border-collapse: collapse;
+  border-spacing: 0px;  
+  font-weight: bold;  
+  border: 1px solid #ebe2e2;
+}
+
+ 
+/*]]>*/
+</style>
+<script type="text/javascript">
+//<![CDATA[
+var a = 40;
+var b = 60; 
+var i = Math.round(Math.random()*(b-a)+parseInt(a));;
+var intval = "";
+var e = i;
+var m;
+
+  
+function miliseg()
+{
+  document.getElementById('mili').innerHTML = i;
+  if(e == 1)
+  {
+    parar();
+  }
+  e--;
+  i--;
+}
+ 
+function iniciar()
+{
+  if(intval=="")
+  {   
+    document.getElementById('mili').innerHTML = i;
+    intval=window.setInterval("miliseg()",30000)
+  }else{
+    parar();
+  }
+}
+ 
+function parar()
+{
+  if(intval!="")
+  {
+    window.clearInterval(intval);
+    document.getElementById('inicia').innerHTML = 'continuar timer';
+    intval="";
+  }
+}
+  
+//]]>
+</script>
+</head>
+  
+  
+  <body onload="iniciar();">
+    <div id="nax">
+      <table class="boton"><tr><td>Quedan solo:</td><tr><th><span id="mili"><!-- contador --></span></th></tr><tr><td>licencias disponibles</td></tr></table>
+    </div>
+  </body>
+</html>
